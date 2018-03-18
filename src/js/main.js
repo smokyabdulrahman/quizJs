@@ -1,6 +1,10 @@
 
 //tokens
 var sectionToken = '.quiz-section';
+//only one choice is valid
+var singleAnswer = 'single';
+//multiple choice
+var multAnswer = 'mult';
 //end tokens
 var quiz = $("#quiz");
 var sections = quiz.children(sectionToken);
@@ -63,15 +67,26 @@ function goToNextSection(){
     updateButtonsStat();
     question.show();
     section.show();
-    if(section.next(sectionToken).length == 0){
-        nextSectionBtn.hide();
-        submitBtn.show();
-    }
 }
 //finish quiz
 function submitQuiz(){
-
+    var score = 0;
+    //for each section
+    sections.each(function(){
+        // for each question in this section
+        $(this).children().each(function(){
+            //for each option in this question
+            if($(this).hasClass(singleAnswer)){
+                score += validateSingleAnswer($(this));
+            }
+            else if($(this).hasClass(multAnswer)){
+                score += validateMultAnswer($(this));
+            }
+        })
+    });
+    console.log("score", score);
 }
+
 //util
 function updateButtonsStat(){
     if(question.prev().length == 0){
@@ -84,4 +99,31 @@ function updateButtonsStat(){
     } else {
         nextQuestionBtn.removeAttr("disabled");
     }
+    if(section.next(sectionToken).length == 0){
+        nextSectionBtn.hide();
+        submitBtn.show();
+    }
+}
+
+function validateSingleAnswer(question){
+    var score = 0;
+    question.children().each(function(){
+        if($(this).attr('value') == 1 && $(this).is(':checked')){
+            score++;
+        }
+    })
+    return score;
+}
+
+function validateMultAnswer(question){
+    var score = 0;
+    question.children().each(function(){
+        if($(this).attr('value') == 1 && $(this).is(':checked')){
+            score++;
+        }
+        else if($(this).attr('value') == 0 && $(this).is(':checked')){
+            score--;
+        }
+    })
+    return score;
 }
