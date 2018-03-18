@@ -1,10 +1,11 @@
 
-
+//tokens
+var sectionToken = '.quiz-section';
+//end tokens
 var quiz = $("#quiz");
-var sections = quiz.children('.quiz-section');
+var sections = quiz.children(sectionToken);
 
 var numOfSections = sections.length;
-
 
 //hide all sections
 sections.hide();
@@ -23,9 +24,15 @@ var question = $(questions.get(0));
 question.show();
 
 //assgin event listeners to buttons
-$('#nextBtn').bind('click', showNext);
-$('#prevBtn').bind('click', showPrev);
-$('#nextSection').bind('click', goToNextSection)
+var submitBtn = $('#submit');
+var nextSectionBtn = $('#nextSection');
+var nextQuestionBtn = $('#nextBtn');
+var prevQuestionBtn = $('#prevBtn');
+submitBtn.bind('click', submitQuiz);
+submitBtn.hide();
+nextQuestionBtn.bind('click', showNext);
+prevQuestionBtn.bind('click', showPrev);
+nextSectionBtn.bind('click', goToNextSection)
 updateButtonsStat();
 
 //show next question
@@ -45,7 +52,8 @@ function showPrev() {
 //show next section
 function goToNextSection(){
     section.hide();
-    section = section.next();
+    console.log("next sec", section.next(sectionToken));
+    section = section.next(sectionToken);
     //get all questions of this section
     questions = section.children();
     //hide all questions
@@ -55,18 +63,25 @@ function goToNextSection(){
     updateButtonsStat();
     question.show();
     section.show();
+    if(section.next(sectionToken).length == 0){
+        nextSectionBtn.hide();
+        submitBtn.show();
+    }
 }
+//finish quiz
+function submitQuiz(){
 
+}
 //util
 function updateButtonsStat(){
     if(question.prev().length == 0){
-        $('#prevBtn').attr("disabled", "disabled");
+        prevQuestionBtn.attr("disabled", "disabled");
     } else {
-        $('#prevBtn').removeAttr("disabled");
+        prevQuestionBtn.removeAttr("disabled");
     }
     if(question.next().length == 0){
-        $('#nextBtn').attr("disabled", "disabled");
+        nextQuestionBtn.attr("disabled", "disabled");
     } else {
-        $('#nextBtn').removeAttr("disabled");
+        nextQuestionBtn.removeAttr("disabled");
     }
 }
