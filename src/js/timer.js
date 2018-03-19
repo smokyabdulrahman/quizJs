@@ -1,10 +1,10 @@
 function Timer(timeToCountInMinutes){
     // Set the the time we're counting down to in seconds
     this.countDownDate = timeToCountInMinutes*60;
-
+    let x; 
     // Update the count down every 1 second
     this.startCounting = function(cb){
-        var x = setInterval(() => {
+        x = setInterval(() => {
 
             // Time calculations for days, hours, minutes and seconds
             var minutes = Math.floor((this.countDownDate % (60 * 60)) / 60);
@@ -20,5 +20,9 @@ function Timer(timeToCountInMinutes){
                 cb();
             }
         }, 1000);
+    }
+    this.stopCounting = function(){
+        clearInterval(x);
+        $('#timer').text('No Timer For This Section');
     }
 }

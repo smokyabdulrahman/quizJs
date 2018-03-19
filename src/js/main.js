@@ -19,6 +19,7 @@ var section = $(sections.get(0));
 section.show();
 
 //start timer for first section
+var timer = new Timer(0);
 checkIfHasTimer(section);
 
 //get all questions of this section
@@ -58,9 +59,11 @@ function showPrev() {
 }
 //show next section
 function goToNextSection(){
+    timer.stopCounting();
     section.hide();
     console.log("next sec", section.next(sectionToken));
     section = section.next(sectionToken);
+    checkIfHasTimer(section);
     //get all questions of this section
     questions = section.children();
     //hide all questions
@@ -68,7 +71,6 @@ function goToNextSection(){
     //show first question
     question = $(questions.get(0));
     updateButtonsStat();
-    checkIfHasTimer(section);
     question.show();
     section.show();
 }
@@ -83,18 +85,28 @@ function checkIfHasTimer(section){
 //finish quiz
 function submitQuiz(){
     var score = 0;
-    //for each section
     sections.each(function(){
-        // for each question in this section
-        $(this).children().each(function(){
+        //for each MCQ section
+        if($(this).hasClass('mcq')){
+            // for each question in this section
+            $(this).children().each(function(){
+                //for each option in this question
+                if($(this).hasClass(singleAnswer)){
+                    score += validateSingleAnswer($(this));
+                }
+                else if($(this).hasClass(multAnswer)){
+                    score += validateMultAnswer($(this));
+                }
+            })
+        }
+        //for each DragnDrop section
+        else if($(this).hasClass('dragndrop')){
             //for each option in this question
-            if($(this).hasClass(singleAnswer)){
-                score += validateSingleAnswer($(this));
-            }
-            else if($(this).hasClass(multAnswer)){
-                score += validateMultAnswer($(this));
-            }
-        })
+            $(this).children().each(function(){
+                score += parseInt($(this).data('points'));
+            })            
+        }
+        
     });
     console.log("score", score);
 }
