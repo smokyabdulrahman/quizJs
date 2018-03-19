@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <div class="quiz-section">
+        <div class="quiz-section" data-minutes="0.1">
             <div class="question mult">1 question section 2
                 <input class="answer" type="checkbox" name="option1" value="1"> Male<br>
                 <input class="answer" type="checkbox" name="option1" value="0"> Female<br>
@@ -81,12 +81,14 @@
         <button id="nextSection" type="button">Go to next section</button>
 
         <button id="submit" type="button">Submit</button>
+        <div id="timer">
 
+        </div>
         <div id="stat">
 
         </div>
     </div>
-
+    <script src="./src/js/timer.js"></script>
     <script src="./src/js/main.js"></script>
 </body>
 </html>

@@ -18,6 +18,9 @@ sections.hide();
 var section = $(sections.get(0));
 section.show();
 
+//start timer for first section
+checkIfHasTimer(section);
+
 //get all questions of this section
 var questions = section.children();
 //hide all questions
@@ -65,8 +68,17 @@ function goToNextSection(){
     //show first question
     question = $(questions.get(0));
     updateButtonsStat();
+    checkIfHasTimer(section);
     question.show();
     section.show();
+}
+
+function checkIfHasTimer(section){
+    let time = section.data('minutes');
+    if(time){
+        timer = new Timer(time);
+        timer.startCounting(doneCounting);
+    }
 }
 //finish quiz
 function submitQuiz(){
@@ -126,4 +138,13 @@ function validateMultAnswer(question){
         }
     })
     return score;
+}
+
+function doneCounting(){
+    if(section.next(sectionToken).length != 0){
+        goToNextSection();
+    }
+    else{
+        submitQuiz();
+    }
 }
