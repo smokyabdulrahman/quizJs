@@ -14,20 +14,20 @@
 
     <div id="quiz">
 
-        <div class="quiz-section mcq">
-            <div class="question single">1 question section 1
+        <div class="quiz-section mcq" data-minutes="1">
+            <div class="question single">What are you? <br>
                 <input class="answer" type="radio" name="option1" value="1"> Male<br>
                 <input class="answer" type="radio" name="option1" value="0"> Female<br>
                 <input class="answer" type="radio" name="option1" value="0"> Gay<br>
                 <input class="answer" type="radio" name="option1" value="0"> Other
             </div>
-            <div class="question single">2 question section 1
+            <div class="question single">What are you? <br>
                 <input class="answer" type="radio" name="option2" value="1"> Male<br>
                 <input class="answer" type="radio" name="option2" value="0"> Female<br>
                 <input class="answer" type="radio" name="option2" value="0"> Gay<br>
                 <input class="answer" type="radio" name="option2" value="0"> Other
             </div>
-            <div class="question single">3 question section 1
+            <div class="question single">What are you? <br>
                 <input class="answer" type="radio" name="option3" value="1"> Male<br>
                 <input class="answer" type="radio" name="option3" value="0"> Female<br>
                 <input class="answer" type="radio" name="option3" value="0"> Gay<br>
@@ -35,20 +35,20 @@
             </div>
         </div>
 
-        <div class="quiz-section mcq" data-minutes="0.1">
-            <div class="question mult">1 question section 2
+        <div class="quiz-section mcq">
+            <div class="question mult">What are you? <br>
                 <input class="answer" type="checkbox" name="option1" value="1"> Male<br>
                 <input class="answer" type="checkbox" name="option1" value="0"> Female<br>
                 <input class="answer" type="checkbox" name="option1" value="1"> Gay<br>
                 <input class="answer" type="checkbox" name="option1" value="0"> Other
             </div>
-            <div class="question mult">2 question section 2
+            <div class="question mult">What are you? <br>
                 <input class="answer" type="checkbox" name="option1" value="1"> Male<br>
                 <input class="answer" type="checkbox" name="option1" value="0"> Female<br>
                 <input class="answer" type="checkbox" name="option1" value="1"> Gay<br>
                 <input class="answer" type="checkbox" name="option1" value="0"> Other
             </div>
-            <div class="question mult">3 question section 2
+            <div class="question mult">What are you? <br>
                 <input class="answer" type="checkbox" name="option1" value="1"> Male<br>
                 <input class="answer" type="checkbox" name="option1" value="0"> Female<br>
                 <input class="answer" type="checkbox" name="option1" value="1"> Gay<br>
@@ -56,7 +56,7 @@
             </div>
         </div>
 
-        <div class="quiz-section dragndrop">
+        <div class="quiz-section dragndrop" data-minutes="0.5">
             <div class="question" data-points="0" data-attempts="1">Fill the blanks <br>
                 <span class="drag" data-id="0">drop</span>
                 <span class="drag" data-id="1">drag</span>
@@ -96,12 +96,8 @@
         <button id="nextSection" type="button">Go to next section</button>
 
         <button id="submit" type="button">Submit</button>
-        <div id="timer">
-
-        </div>
-        <div id="stat">
-
-        </div>
+        <p>Timer:<span id="timer">No Timer For This Section</span></p>
+        <div id="stat"></div>
     </div>
     <script src="./src/js/timer.js"></script>
     <script src="./src/js/dragNdropQ.js"></script>
