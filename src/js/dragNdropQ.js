@@ -3,7 +3,6 @@
 
 $(".drag").draggable({
     revert: function(dropped) {
-        console.log("d",dropped);
         if(!dropped){
             return true;
         }
@@ -17,7 +16,6 @@ $(".drop").droppable({
 function validateDragNDrop(dropContainer, draggable){
     //answer is correct, add one point & remove draggable and add it to droppable
     let q = dropContainer.parent('.question');
-    console.log("q", q);
     if(dropContainer.data('correct') === draggable.data('id')){
         //add draggable to container
         // dropContainer.append(draggable);

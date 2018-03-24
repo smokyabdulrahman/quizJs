@@ -1,7 +1,7 @@
 function Timer(timeToCountInMinutes){
     // Set the the time we're counting down to in seconds
     this.countDownDate = timeToCountInMinutes*60;
-    let x; 
+    var x; 
     // Update the count down every 1 second
     this.startCounting = function(cb){
         x = setInterval(() => {

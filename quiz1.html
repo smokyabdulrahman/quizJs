@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>      
+    <script
+    src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
+    integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js">
+    </script>
+</head>
+<body>
+
+    <div id="quiz">
+
+        <div class="quiz-section mcq" data-minutes="1">
+            <div class="question single">What are you? <br>
+                <input class="answer" type="radio" name="option1" value="1"> Male<br>
+                <input class="answer" type="radio" name="option1" value="0"> Female<br>
+                <input class="answer" type="radio" name="option1" value="0"> Gay<br>
+                <input class="answer" type="radio" name="option1" value="0"> Other
+            </div>
+            <div class="question single">What are you? <br>
+                <input class="answer" type="radio" name="option2" value="1"> Male<br>
+                <input class="answer" type="radio" name="option2" value="0"> Female<br>
+                <input class="answer" type="radio" name="option2" value="0"> Gay<br>
+                <input class="answer" type="radio" name="option2" value="0"> Other
+            </div>
+            <div class="question single">What are you? <br>
+                <input class="answer" type="radio" name="option3" value="1"> Male<br>
+                <input class="answer" type="radio" name="option3" value="0"> Female<br>
+                <input class="answer" type="radio" name="option3" value="0"> Gay<br>
+                <input class="answer" type="radio" name="option3" value="0"> Other
+            </div>
+        </div>
+
+        <div class="quiz-section mcq">
+            <div class="question mult">What are you? <br>
+                <input class="answer" type="checkbox" name="option1" value="1"> Male<br>
+                <input class="answer" type="checkbox" name="option1" value="0"> Female<br>
+                <input class="answer" type="checkbox" name="option1" value="1"> Gay<br>
+                <input class="answer" type="checkbox" name="option1" value="0"> Other
+            </div>
+            <div class="question mult">What are you? <br>
+                <input class="answer" type="checkbox" name="option1" value="1"> Male<br>
+                <input class="answer" type="checkbox" name="option1" value="0"> Female<br>
+                <input class="answer" type="checkbox" name="option1" value="1"> Gay<br>
+                <input class="answer" type="checkbox" name="option1" value="0"> Other
+            </div>
+            <div class="question mult">What are you? <br>
+                <input class="answer" type="checkbox" name="option1" value="1"> Male<br>
+                <input class="answer" type="checkbox" name="option1" value="0"> Female<br>
+                <input class="answer" type="checkbox" name="option1" value="1"> Gay<br>
+                <input class="answer" type="checkbox" name="option1" value="0"> Other
+            </div>
+        </div>
+
+        <div class="quiz-section dragndrop" data-minutes="0.5">
+            <div class="question" data-points="0" data-attempts="1">Fill the blanks <br>
+                <span class="drag" data-id="0">drop</span>
+                <span class="drag" data-id="1">drag</span>
+                <br />
+                This is a sample 
+                <div data-correct="1" class="drop" style="width:100px; height:100px; background-color:red;"></div>
+                and 
+                <div data-correct="0" class="drop" style="width:100px; height:100px; background-color:red;"></div>
+                sentence.
+            </div>
+            <div class="question" data-points="0" data-attempts="1">Fill the blanks <br>
+                <span class="drag" data-id="0">drop</span>
+                <span class="drag" data-id="1">drag</span>
+                <br />
+                This is a sample 
+                <div data-correct="1" class="drop" style="width:100px; height:100px; background-color:red;"></div>
+                and 
+                <div data-correct="0" class="drop" style="width:100px; height:100px; background-color:red;"></div>
+                sentence.
+            </div>
+            <div class="question" data-points="0" data-attempts="1">Fill the blanks <br>
+                <span class="drag" data-id="0">drop</span>
+                <span class="drag" data-id="1">drag</span>
+                <br />
+                This is a sample 
+                <div data-correct="1" class="drop" style="width:100px; height:100px; background-color:red;"></div>
+                and 
+                <div data-correct="0" class="drop" style="width:100px; height:100px; background-color:red;"></div>
+                sentence.
+            </div>
+        </div>
+
+        <button id="prevBtn" type="button">Prev</button>
+
+        <button id="nextBtn" type="button">Next</button>
+
+        <button id="nextSection" type="button">Go to next section</button>
+
+        <button id="submit" type="button">Submit</button>
+        <p>Timer:<span id="timer">No Timer For This Section</span></p>
+        <div id="stat">
+            <!-- total number of questions and percentage grade -->
+            <p>Total Number of Questions: <span id="total"></span></p>
+            <p>Grade out of 100%: <span id="percentage"></span></p>
+
+            <!-- correctly answered questions in each group / 
+                pie / 
+                numOfCorrect/numOfQuestions for each section -->
+            <p>Number of Completely solved Questions in each Section:</p>
+            <canvas id="correctOnly" width="400" height="400"></canvas>
+            <!-- partially answered questions seconde group out 
+                of num of question /
+                 pie / num of questions where 
+                 maxScore > score > 0 
+                over num of question -->
+            <p>Number of Completely/Partially/Not solved Questions in Section2:</p>
+            <canvas id="sec2" width="400" height="400"></canvas>
+        </div>
+    </div>
+    <script src="./src/js/timer.js"></script>
+    <script src="./src/js/dragNdropQ.js"></script>
+    <script src="./src/js/graph.js"></script>
+    <script src="./src/js/main.js"></script>
+</body>
+</html>

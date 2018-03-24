@@ -1,104 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script
-    src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>      
-    <script
-    src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
-    integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="
-    crossorigin="anonymous"></script>    
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("user_wQt6GQxo6Nf1BE1jERWjZ");
+            // emailjs.send("gmail","template_uEFDZj3j",{name: "James", notes: "Check this out!"});
+        })();
+    </script>
 </head>
 <body>
-
-    <div id="quiz">
-
-        <div class="quiz-section mcq" data-minutes="1">
-            <div class="question single">What are you? <br>
-                <input class="answer" type="radio" name="option1" value="1"> Male<br>
-                <input class="answer" type="radio" name="option1" value="0"> Female<br>
-                <input class="answer" type="radio" name="option1" value="0"> Gay<br>
-                <input class="answer" type="radio" name="option1" value="0"> Other
-            </div>
-            <div class="question single">What are you? <br>
-                <input class="answer" type="radio" name="option2" value="1"> Male<br>
-                <input class="answer" type="radio" name="option2" value="0"> Female<br>
-                <input class="answer" type="radio" name="option2" value="0"> Gay<br>
-                <input class="answer" type="radio" name="option2" value="0"> Other
-            </div>
-            <div class="question single">What are you? <br>
-                <input class="answer" type="radio" name="option3" value="1"> Male<br>
-                <input class="answer" type="radio" name="option3" value="0"> Female<br>
-                <input class="answer" type="radio" name="option3" value="0"> Gay<br>
-                <input class="answer" type="radio" name="option3" value="0"> Other
-            </div>
+    <form action="quiz1.html" method="get">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" value="" required>
         </div>
-
-        <div class="quiz-section mcq">
-            <div class="question mult">What are you? <br>
-                <input class="answer" type="checkbox" name="option1" value="1"> Male<br>
-                <input class="answer" type="checkbox" name="option1" value="0"> Female<br>
-                <input class="answer" type="checkbox" name="option1" value="1"> Gay<br>
-                <input class="answer" type="checkbox" name="option1" value="0"> Other
-            </div>
-            <div class="question mult">What are you? <br>
-                <input class="answer" type="checkbox" name="option1" value="1"> Male<br>
-                <input class="answer" type="checkbox" name="option1" value="0"> Female<br>
-                <input class="answer" type="checkbox" name="option1" value="1"> Gay<br>
-                <input class="answer" type="checkbox" name="option1" value="0"> Other
-            </div>
-            <div class="question mult">What are you? <br>
-                <input class="answer" type="checkbox" name="option1" value="1"> Male<br>
-                <input class="answer" type="checkbox" name="option1" value="0"> Female<br>
-                <input class="answer" type="checkbox" name="option1" value="1"> Gay<br>
-                <input class="answer" type="checkbox" name="option1" value="0"> Other
-            </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" value="" required>
         </div>
-
-        <div class="quiz-section dragndrop" data-minutes="0.5">
-            <div class="question" data-points="0" data-attempts="1">Fill the blanks <br>
-                <span class="drag" data-id="0">drop</span>
-                <span class="drag" data-id="1">drag</span>
-                <br />
-                This is a sample 
-                <div data-correct="1" class="drop" style="width:100px; height:100px; background-color:red;"></div>
-                and 
-                <div data-correct="0" class="drop" style="width:100px; height:100px; background-color:red;"></div>
-                sentence.
-            </div>
-            <div class="question" data-points="0" data-attempts="1">Fill the blanks <br>
-                <span class="drag" data-id="0">drop</span>
-                <span class="drag" data-id="1">drag</span>
-                <br />
-                This is a sample 
-                <div data-correct="1" class="drop" style="width:100px; height:100px; background-color:red;"></div>
-                and 
-                <div data-correct="0" class="drop" style="width:100px; height:100px; background-color:red;"></div>
-                sentence.
-            </div>
-            <div class="question" data-points="0" data-attempts="1">Fill the blanks <br>
-                <span class="drag" data-id="0">drop</span>
-                <span class="drag" data-id="1">drag</span>
-                <br />
-                This is a sample 
-                <div data-correct="1" class="drop" style="width:100px; height:100px; background-color:red;"></div>
-                and 
-                <div data-correct="0" class="drop" style="width:100px; height:100px; background-color:red;"></div>
-                sentence.
-            </div>
+        <div class="submit">
+            <input type="submit" value="Submit">
         </div>
-
-        <button id="prevBtn" type="button">Prev</button>
-
-        <button id="nextBtn" type="button">Next</button>
-
-        <button id="nextSection" type="button">Go to next section</button>
-
-        <button id="submit" type="button">Submit</button>
-        <p>Timer:<span id="timer">No Timer For This Section</span></p>
-        <div id="stat"></div>
-    </div>
+    </form>    
     <script src="./src/js/timer.js"></script>
     <script src="./src/js/dragNdropQ.js"></script>
     <script src="./src/js/main.js"></script>
