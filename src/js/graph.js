@@ -13,7 +13,9 @@ function intiStats(){
     let percentageSpan = $('#percentage');
     totalQSpan.html(parseInt(localStorage.getItem(sec1NumOfQ)) + parseInt(localStorage.getItem(sec2NumOfQ)) + parseInt(localStorage.getItem(sec3NumOfQ)));
     percentageSpan.html(parseInt(localStorage.getItem(totalScore)) / parseInt(localStorage.getItem(totalMax)) * 100 + "%");
-
+    let myOptions= {
+        responsive: false
+    }
     //correct percentage graph
     var ctx = document.getElementById("correctOnly").getContext('2d');
     var numCorrectForEachSec = [parseInt(localStorage.getItem(sec1SolvedQ)), 
@@ -31,7 +33,8 @@ function intiStats(){
                 data: numCorrectForEachSec,
                 backgroundColor: numCorrectForEachSecColors
             }]
-        }
+        },
+        options: myOptions
     });
 
     //section 2 graph
@@ -53,10 +56,9 @@ function intiStats(){
                 data: sec2Data,
                 backgroundColor: sec2Colors
             }]
-        }
+        },
+        options: myOptions
     });
-
-    
 }
 
 function dynamicColors() {

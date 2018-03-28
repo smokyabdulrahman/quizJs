@@ -1,7 +1,4 @@
-//get name + email
-// let params = (new URL(document.location)).searchParams;
-// let name = params.get("name");
-// let email = params.get("email");
+$('#quiz').show();
 //set localStorage vars
 var sec1NumOfQ = 'section1NumberOfQuestions';
 var sec2NumOfQ = 'section2NumberOfQuestions';
@@ -30,13 +27,14 @@ var singleAnswer = 'single';
 var multAnswer = 'mult';
 //end tokens
 var quiz = $("#quiz");
+var stats = $("#stat");
 var sections = quiz.children(sectionToken);
 
 var numOfSections = sections.length;
 
 //hide all sections
 sections.hide();
-
+stats.hide();
 //set current section
 var section = $(sections.get(0));
 section.show();
@@ -111,6 +109,7 @@ function submitQuiz(){
     timer.stopCounting();
     //hide section
     section.hide();
+    stats.show();
     //hide btns
     submitBtn.hide();
     nextQuestionBtn.hide();
@@ -180,7 +179,7 @@ function updateButtonsStat(){
 
 function validateSingleAnswer(question){
     var score = 0;
-    question.children().each(function(){
+    question.children('.answer').each(function(){
         if($(this).attr('value') == 1 && $(this).is(':checked')){
             score++;
             incrementSolvedOfSec(1);
@@ -192,7 +191,7 @@ function validateSingleAnswer(question){
 function validateMultAnswer(question){
     var result = 0;
     let maxScore = 0;
-    question.children().each(function(){
+    question.children('.answer').each(function(){
         if($(this).attr('value') == 1){maxScore++}
         if($(this).attr('value') == 1 && $(this).is(':checked')){
             result++;

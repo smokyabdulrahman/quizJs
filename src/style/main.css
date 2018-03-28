@@ -1,0 +1,58 @@
+.quiz-section{
+    border: 2px goldenrod solid;
+    padding: 5px;
+}
+/* mcq questions */
+.question{
+    font-size: 20px;
+}
+.question>.text{
+    font-weight: bold;
+    font-size: 40px;
+    color: red;
+    margin: 5px 0;
+}
+/* mcq questions end */
+
+/* Drag n Drop questions */
+.dragndrop .drag {
+    display: inline-block; 
+    border: 2px gold solid;
+    padding: 5px;
+    margin: 5px;
+}
+.dragndrop .drop {
+    display: inline-block;
+    border-bottom: 2px sandybrown dotted;
+    width: 130px;
+    height: 20px;
+}
+/* Drag n Drop questions end */
+
+/* Stat */
+#stat{
+    font-size: 30px;
+}
+#stat canvas{
+    width: 600px ;
+    height: 600px;
+}
+/* Stat end */
+/* timer */
+#timer{
+    font-size: 40px;
+    color:red;
+}
+#timer-data{
+    color: green;
+}
+/* timer end */
+
+/* buttons */
+#prevBtn,#nextBtn,#nextSection,#submit{
+    color: white;
+    background-color: goldenrod;
+    border:0;
+    padding: 10px;
+}
+/* buttons end */
