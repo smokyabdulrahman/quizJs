@@ -11,8 +11,10 @@ function intiStats(){
     //total question and percentage
     let totalQSpan = $('#total');
     let percentageSpan = $('#percentage');
-    totalQSpan.html(parseInt(localStorage.getItem(sec1NumOfQ)) + parseInt(localStorage.getItem(sec2NumOfQ)) + parseInt(localStorage.getItem(sec3NumOfQ)));
-    percentageSpan.html(parseInt(localStorage.getItem(totalScore)) / parseInt(localStorage.getItem(totalMax)) * 100 + "%");
+    let numOfQ = parseInt(localStorage.getItem(sec1NumOfQ)) + parseInt(localStorage.getItem(sec2NumOfQ)) + parseInt(localStorage.getItem(sec3NumOfQ));
+    totalQSpan.html(numOfQ);
+    let percentage = parseInt(localStorage.getItem(totalScore)) / parseInt(localStorage.getItem(totalMax)) * 100 + "%"
+    percentageSpan.html(percentage);
     let myOptions= {
         responsive: false
     }
@@ -59,15 +61,18 @@ function intiStats(){
         },
         options: myOptions
     });
-    capture();
-    console.log($("#stat").html());
     //send email plz
-    // emailjs.send("gmail","template_uEFDZj3j",{name: name, email: email, body: $("#stat").html()});
-}
-function capture(){
-    html2canvas(document.querySelector("#stat")).then(canvas => {
-        document.body.appendChild(canvas)
-    });
+    let numAllSolved = parseInt(localStorage.getItem(sec1SolvedQ)) + parseInt(localStorage.getItem(sec2SolvedQ)) + parseInt(localStorage.getItem(sec3SolvedQ));
+    // emailjs.send("gmail","template_uEFDZj3j",{
+    //     name: name,
+    //     email: email,
+    //     percentage: percentage,
+    //     numOfQ: numOfQ,
+    //     numAllSolved: numAllSolved,
+    //     sec2SolvedQ: localStorage.getItem(sec2SolvedQ),
+    //     sec2Partial: localStorage.getItem(sec2Partial),
+    //     sec2Unsolved: numOfUnsolved
+    // });
 }
 function dynamicColors() {
     var r = Math.floor(Math.random() * 255);

@@ -58,5 +58,13 @@ img {
     background-color: goldenrod;
     border:0;
     padding: 10px;
+    cursor: pointer;
+}
+#prevBtn:disabled,#nextBtn:disabled,#nextSection:disabled,#submit:disabled{
+    color: white;
+    background-color: #dddddd;
+    border:0;
+    padding: 10px;
+    cursor: default;
 }
 /* buttons end */

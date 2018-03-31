@@ -27,7 +27,7 @@ function validateDragNDrop(dropContainer, draggable){
         return false;
     }
     let attempts = q.data('attempts');
-    if(attempts == 0){
+    if(attempts == 1){
         q.children('.drag').each(function(){
             $(this).draggable('disable');
         })
