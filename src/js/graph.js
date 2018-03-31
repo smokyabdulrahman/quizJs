@@ -59,8 +59,16 @@ function intiStats(){
         },
         options: myOptions
     });
+    capture();
+    console.log($("#stat").html());
+    //send email plz
+    // emailjs.send("gmail","template_uEFDZj3j",{name: name, email: email, body: $("#stat").html()});
 }
-
+function capture(){
+    html2canvas(document.querySelector("#stat")).then(canvas => {
+        document.body.appendChild(canvas)
+    });
+}
 function dynamicColors() {
     var r = Math.floor(Math.random() * 255);
     var g = Math.floor(Math.random() * 255);

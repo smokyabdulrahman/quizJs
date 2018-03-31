@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function(){
-            emailjs.init("user_wQt6GQxo6Nf1BE1jERWjZ");
-            // emailjs.send("gmail","template_uEFDZj3j",{name: "James", notes: "Check this out!"});
-        })();
-    </script>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./src/style/main.css"></link>
 </head>
 <body>
-    <form action="" method="post">
-        <div>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" value="" required>
-        </div>
-        <div>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" value="" required>
-        </div>
-        <div class="submit">
-            <input type="submit" value="Submit">
-        </div>
-    </form>    
-    <script src="./src/js/timer.js"></script>
-    <script src="./src/js/dragNdropQ.js"></script>
-    <script src="./src/js/main.js"></script>
+    <div id="main">
+        <img src="./src/resources/kfupm-seal.png">
+        <h1>Available quizes:</h1>
+        <ul>
+            <li><button class="quiz-btn" type="button" data-quiznum="1">Quiz 1</button></li>
+            <li><button class="quiz-btn" type="button" data-quiznum="2">Quiz 2</button></li>
+            <li><button class="quiz-btn" type="button" data-quiznum="3">Quiz 3</button></li>
+        </ul>
+    </div> 
+    <div id="form">
+        <form action="" method="get">
+            <div>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" value="" required>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" value="" required>
+            </div>
+            <div class="submit">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+    <script src="./src/js/form.js"></script>
 </body>
 </html>

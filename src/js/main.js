@@ -18,6 +18,10 @@ localStorage.setItem(sec2SolvedQ, 0);
 localStorage.setItem(sec3SolvedQ, 0);
 localStorage.setItem(sec2Partial, 0);
 
+//get name and email plz
+var params = (new URL(document.location)).searchParams;
+var name = params.get("name");
+var email = params.get("email");
 
 //tokens
 var sectionToken = '.quiz-section';

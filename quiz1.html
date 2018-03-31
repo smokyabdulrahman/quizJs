@@ -11,6 +11,13 @@
     crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js">
     </script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("user_wQt6GQxo6Nf1BE1jERWjZ");
+        })();
+    </script>
+    <script src="./src/js/html2canvas.min.js"></script>
     <link rel="stylesheet" href="./src/style/main.css"></link>
 </head>
 <body>
@@ -25,7 +32,7 @@
                 <input class="answer" type="radio" name="option1" value="0"> Other
             </div>
             <div class="question single">
-
+                <p class="text">What are you?</p>
                 <input class="answer" type="radio" name="option2" value="1"> Male<br>
                 <input class="answer" type="radio" name="option2" value="0"> Female<br>
                 <input class="answer" type="radio" name="option2" value="0"> Gay<br>
@@ -90,9 +97,9 @@
                 <span class="drag" data-id="1">drag</span>
                 <br />
                 This is a sample 
-                <div data-correct="1" class="drop" style="width:100px; height:100px; background-color:red;"></div>
+                <div data-correct="1" class="drop"></div>
                 and 
-                <div data-correct="0" class="drop" style="width:100px; height:100px; background-color:red;"></div>
+                <div data-correct="0" class="drop"></div>
                 sentence.
             </div>
         </div>
